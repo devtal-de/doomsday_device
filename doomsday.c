@@ -158,8 +158,13 @@ void nOut(char n) {
 }
 
 void getOut(unsigned int n){
-  char z[nn] = {char(n/10000), char((n/1000)%10), char((n/100)%10), 
-char((n/10)%10), char(n%10)};
+  char z[nn] = {
+    char( n/10000),
+    char((n/1000)%10),
+    char((n/100) %10),
+    char((n/10)  %10),
+    char( n      %10)
+  };
 
   unsigned int countadd = del/plexdel;
   unsigned int count = 0;
