@@ -18,18 +18,18 @@
 
 
 char a =   0;  //   a
-char b =   1;  // f   b
+char b =   2;  // f   b
 char c =   4;  //   g
 char d =   7;  // e   c
 char e =   8;  //   d
-char f =   2;  //
+char f =   1;  //
 char g =   3;  // see <https://de.wikipedia.org/wiki/Segmentanzeige> 
 char ld =  6;  //
-char rd =  5;  //
-enum {nn = 5}; //
+//char rd =  5;  //
+enum {nn = 6}; //
 
-char l[nn] = {9, 10, 11, 12, 13};
-unsigned int del = 1000;
+char l[nn] = {5, 9, 10, 11, 12, 13};
+unsigned int del = 100;
 unsigned int plexdel = 1;
 
 void nOut(char n) {
@@ -44,7 +44,7 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  HIGH);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 1:
@@ -56,7 +56,7 @@ void nOut(char n) {
       digitalWrite(f,  HIGH);
       digitalWrite(g,  HIGH);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 2:
@@ -68,7 +68,7 @@ void nOut(char n) {
       digitalWrite(f,  HIGH);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 3:
@@ -80,7 +80,7 @@ void nOut(char n) {
       digitalWrite(f,  HIGH);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 4:
@@ -92,7 +92,7 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 5:
@@ -104,7 +104,7 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 6:
@@ -116,7 +116,7 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 7:
@@ -128,7 +128,7 @@ void nOut(char n) {
       digitalWrite(f,  HIGH);
       digitalWrite(g,  HIGH);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 8:
@@ -140,7 +140,7 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
 
     case 9:
@@ -152,18 +152,19 @@ void nOut(char n) {
       digitalWrite(f,  LOW);
       digitalWrite(g,  LOW);
       digitalWrite(ld, HIGH);
-      digitalWrite(rd, HIGH);
+      //digitalWrite(rd, HIGH);
       break;
   }
 }
 
-void getOut(unsigned int n){
+void getOut(unsigned long int n){
   char z[nn] = {
-    char( n/10000),
-    char((n/1000)%10),
-    char((n/100) %10),
-    char((n/10)  %10),
-    char( n      %10)
+    char( n/100000),
+    char((n/10000)%10),
+    char((n/1000) %10),
+    char((n/100)  %10),
+    char((n/10)   %10),
+    char( n       %10)
   };
 
   unsigned int countadd = del/plexdel;
@@ -191,7 +192,7 @@ void setup() {
   pinMode(f,  OUTPUT);
   pinMode(g,  OUTPUT);
   pinMode(ld, OUTPUT);
-  pinMode(rd, OUTPUT);
+  //pinMode(rd, OUTPUT);
 
   for (char i=0; i<nn; i++){
     pinMode(l[i], OUTPUT);
@@ -206,11 +207,11 @@ void setup() {
   digitalWrite(f,  LOW);
   digitalWrite(g,  LOW);
   digitalWrite(ld, LOW);
-  digitalWrite(rd, LOW);
+  //digitalWrite(rd, LOW);
 }
 
 void loop() {
-  unsigned int i = 21600;
+  unsigned long int i = 216000;
   while (i>0) {
     getOut(i);
     i--;
